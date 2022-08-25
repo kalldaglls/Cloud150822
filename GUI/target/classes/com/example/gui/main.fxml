@@ -35,17 +35,13 @@
 <!--        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>-->
 <!--    </padding>-->
 <!--    <TableView fx:id="filesTable" VBox.vgrow="ALWAYS" />-->
-    <GridPane>
-
-            <Label text="My Label">
-                <GridPane.rowIndex>0</GridPane.rowIndex>
-                <GridPane.columnIndex>0</GridPane.columnIndex>
-            </Label>
-    </GridPane>
     <HBox>
-        <Label text="Клиент" HBox.hgrow="ALWAYS"/>
-        <Label text="Сервер" HBox.hgrow="ALWAYS"/>
-<!--        <Text text="Сервер" HBox.hgrow="ALWAYS"/>-->
+        <Label text="Клиент" padding="30" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+        <Label text="Сервер" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+<!--        <padding>-->
+<!--            <Insets bottom="5.0" left="10" right="5.0" top="5.0" />-->
+<!--        </padding>-->
+        <!--        <Text text="Сервер" HBox.hgrow="ALWAYS"/>-->
 <!--        <BarChart>-->
 <!--            <BarChartItem HBox.hgrow="ALWAYS">-->
 <!--               <Text text="Клиент"/>-->

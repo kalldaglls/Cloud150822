@@ -7,7 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="GUI" />
-        <module name="DropBoxNew" />
+        <module name="Server" />
+        <module name="Client" />
+        <module name="Common" />
       </profile>
     </annotationProcessing>
   </component>

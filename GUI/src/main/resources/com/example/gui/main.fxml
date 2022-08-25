@@ -36,9 +36,12 @@
 <!--    </padding>-->
 <!--    <TableView fx:id="filesTable" VBox.vgrow="ALWAYS" />-->
     <HBox>
-        <Label text="Клиент" padding="" HBox.hgrow="ALWAYS"/>
-        <Label text="Сервер" HBox.hgrow="ALWAYS"/>
-<!--        <Text text="Сервер" HBox.hgrow="ALWAYS"/>-->
+        <Label text="Клиент" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+        <Label text="Сервер" maxWidth="Infinity" HBox.hgrow="ALWAYS"/>
+        <padding>
+            <Insets bottom="5.0" left="10" right="5.0" top="5.0" />
+        </padding>
+        <!--        <Text text="Сервер" HBox.hgrow="ALWAYS"/>-->
 <!--        <BarChart>-->
 <!--            <BarChartItem HBox.hgrow="ALWAYS">-->
 <!--               <Text text="Клиент"/>-->
