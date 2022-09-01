@@ -26,24 +26,28 @@ public class Client {
                 .handler(new ChannelInitializer<SocketChannel>() {
                     @Override
                     protected void initChannel(SocketChannel socketChannel) {
-                        socketChannel.pipeline().addLast(new InboundClientHandler());
+                        //socketChannel.pipeline().addLast(new InboundClientHandler());
                     }
                 });
         ChannelFuture channelFuture = bootstrap.connect().sync();
         Channel channel = channelFuture.channel();
         ByteBuf buffer = channel.alloc().buffer();
 
-        Path path = Paths.get("3.txt");
+        Path path = Paths.get("DZ_1.txt");
         String filename = path.getFileName().toString();
         int filenameLength = filename.length();
         byte[] bytesFromFile = Files.readAllBytes(path);
 
         //правильно ли так запихивать файл в буффер?
         buffer.writeBytes(filename.getBytes());
-        channel.writeAndFlush(buffer);
+    //    channel.writeAndFlush(buffer);
         buffer.writeInt(filenameLength);
         buffer.writeBytes(bytesFromFile);
+        System.out.println(buffer);
         channel.writeAndFlush(buffer);
+
+//        buffer.writeBytes("Server hello".getBytes(StandardCharsets.UTF_8));
+//        channel.writeAndFlush(buffer);
 
         channelFuture.channel().closeFuture().sync();
     }
