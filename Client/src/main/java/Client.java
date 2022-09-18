@@ -29,6 +29,23 @@ public class Client {
                         //socketChannel.pipeline().addLast(new InboundClientHandler());
                     }
                 });
+        sendText(bootstrap);
+       // sendFile(bootstrap);
+    }
+
+    private static void sendText(Bootstrap bootstrap) throws InterruptedException, IOException {
+        ChannelFuture channelFuture = bootstrap.connect().sync();
+        Channel channel = channelFuture.channel();
+        ByteBuf buffer = channel.alloc().buffer();
+
+        buffer.writeBytes("Hello!".getBytes(StandardCharsets.UTF_8));
+        System.out.println(buffer.getByte((char) 1));
+        System.out.println(channel.writeAndFlush(buffer));
+        System.out.println(channel.read());
+        channelFuture.channel().closeFuture().sync();
+    }
+
+    private static void sendFile(Bootstrap bootstrap) throws InterruptedException, IOException {
         ChannelFuture channelFuture = bootstrap.connect().sync();
         Channel channel = channelFuture.channel();
         ByteBuf buffer = channel.alloc().buffer();
@@ -39,9 +56,9 @@ public class Client {
         byte[] bytesFromFile = Files.readAllBytes(path);
 
         //правильно ли так запихивать файл в буффер?
-        buffer.writeBytes(filename.getBytes());
-    //    channel.writeAndFlush(buffer);
-        buffer.writeInt(filenameLength);
+        //buffer.writeBytes(filename.getBytes());
+        //    channel.writeAndFlush(buffer);
+        //buffer.writeInt(filenameLength);
         buffer.writeBytes(bytesFromFile);
         System.out.println(buffer);
         channel.writeAndFlush(buffer);

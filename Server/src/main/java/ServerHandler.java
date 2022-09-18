@@ -29,24 +29,24 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         ByteBuf in = (ByteBuf) msg;//как просто принять буффер и записать из него файл(в файл?)?
         byte[] data = new byte[in.readableBytes()];
         in.readBytes(data);
-//        try {
-////            if (!in.isReadable()) {
-////                in.retain(1);
-////            }
-////            while (in.isReadable()) {
-////                System.out.print((char) in.readByte());
-////            }
-////            in.release();
-//
-//              in.readBytes(data);
-//        } catch (IllegalReferenceCountException e) {
-//            e.printStackTrace();
-//        }
-//        finally {
-//            ctx.fireChannelRead(data);
-//            ReferenceCountUtil.release(msg);
-//        }
         ctx.fireChannelRead(data);
+//        try {
+//////            if (!in.isReadable()) {
+//////                in.retain(1);
+//////            }
+//////            while (in.isReadable()) {
+//////                System.out.print((char) in.readByte());
+//////            }
+//////            in.release();
+////
+////              in.readBytes(data);
+////        } catch (IllegalReferenceCountException e) {
+////            e.printStackTrace();
+////        }
+////        finally {
+////            ctx.fireChannelRead(data);
+////            ReferenceCountUtil.release(msg);
+////        }
 //        if (in.isReadable()){//Зачем в ServerHandler создаем два ByteBuf, если можно выливать из одного?
 //            in.readBytes(totalBuf);
 //        }

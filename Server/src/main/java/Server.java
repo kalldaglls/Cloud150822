@@ -17,8 +17,9 @@ public class Server {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(
-                                    new ServerHandler(),
+//                                    new ServerHandler(),
                                     new FileHandler()
+//                                    new ServerHandler2()
                             );
                         }
                     })
